@@ -37,3 +37,18 @@ Puedes instalar los requisitos ejecutando:
 
 ```bash
 pip install torch torchvision numpy matplotlib pillow
+
+## Como Usar
+Abre el archivo **Image Classifier Project.ipynb** en un entorno como Jupyter Notebook.
+Sigue los pasos del notebook para:
+
+    Cargar el conjunto de datos.
+    Entrenar el modelo.
+    Evaluar el modelo y realizar predicciones.
+    Guardar el modelo entrenado.
+El notebook proporciona un flujo guiado para entrenar y evaluar el modelo, sin necesidad de escribir código adicional.
+
+### Usando el Script de Entrenamiento
+El archivo** train.py** ofrece varias opciones configurables desde la línea de comandos. Puedes ejecutar el script con los siguientes parámetros:
+```bash
+python train.py flowers --save_dir checkpoints --arch densenet169 --learning_rate 0.003 --epochs 20 --hidden_unit_per_layer 1024 512 --gpu
