@@ -37,7 +37,7 @@ Puedes instalar los requisitos ejecutando:
 
 ```bash
 pip install torch torchvision numpy matplotlib pillow
-
+```
 ## Como Usar
 Abre el archivo **Image Classifier Project.ipynb** en un entorno como Jupyter Notebook.
 Sigue los pasos del notebook para:
@@ -52,3 +52,34 @@ El notebook proporciona un flujo guiado para entrenar y evaluar el modelo, sin n
 El archivo** train.py** ofrece varias opciones configurables desde la línea de comandos. Puedes ejecutar el script con los siguientes parámetros:
 ```bash
 python train.py flowers --save_dir checkpoints --arch densenet169 --learning_rate 0.003 --epochs 20 --hidden_unit_per_layer 1024 512 --gpu
+```
+flowers: Directorio de datos que contiene las carpetas train, valid y test.
+--save_dir: Directorio donde se guardará el checkpoint del modelo entrenado.
+--arch: Arquitectura del modelo (densenet169 o alexnet).
+--learning_rate: Tasa de aprendizaje.
+--epochs: Número de épocas de entrenamiento.
+--hidden_unit_per_layer: Número de unidades en las capas ocultas.
+--gpu: Usar GPU para entrenar (habilitado por defecto).
+
+### Usando el Script de Predicción
+
+El archivo **predict.py** permite predecir categorías de flores en imágenes individuales. Puedes ejecutar el script con los siguientes parámetros:
+```bash
+python predict.py path/to/image checkpoint.pth --top_k 5 --categories cat_to_name.json --gpu
+```
+
+path/to/image: Ruta de la imagen para la predicción.
+checkpoint.pth: Ruta al checkpoint del modelo entrenado.
+--top_k: Número de categorías principales para mostrar (por defecto: 5).
+--categories: Archivo JSON que mapea las etiquetas de categorías con sus nombres.
+--gpu: Habilita GPU para predicciones (habilitado por defecto).
+
+### Datos de Entrenamiento
+
+Los datos deben estar organizados en carpetas como sigue:
+```bash
+flowers/
+    train/
+    valid/
+    test/
+```
